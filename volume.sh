@@ -13,9 +13,9 @@ if [ "$1" == "mute" ]; then
 fi
 
 
-AMIXER=$(amixer sget Master)
-VOLUME=$(echo $AMIXER | grep 'Right:' | awk -F'[][]' '{ print $2 }' | tr -d "%")
-MUTE=$(echo $AMIXER | grep -o '\[off\]' | tail -n 1)
+VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' | head -1)
+MUTE=$(pactl get-sink-mute @DEFAULT_SINK@)
+SINK=$(pactl info | grep "Default Sink" | cut -d ' ' -f 3)
 if [ "$VOLUME" -le 20 ]; then
     ICON=audio-volume-low
 else if [ "$VOLUME" -le 60 ]; then
@@ -24,13 +24,11 @@ else if [ "$VOLUME" -le 60 ]; then
          ICON=audio-volume-high
      fi
 fi
-if [ "$MUTE" == "[off]" ]; then
+if [ "$MUTE" == "Mute: yes" ]; then
     ICON=audio-volume-muted
 fi 
 
-
-
-NOTI_ID=$(/home/kmendez/.local/bin/notify-send.py "Volume" "$VOLUME/100" --expire-time 2000 \
+NOTI_ID=$(/home/kmendez/.local/bin/notify-send.py "Volume $VOLUME%" "($SINK)" --expire-time 2000 \
                          --hint string:image-path:$ICON boolean:transient:true \
                                 int:has-percentage:$VOLUME \
                          --replaces-process "volume-popup")
