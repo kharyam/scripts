@@ -2,7 +2,7 @@
 
 echo -n Loading...
 
-API_KEY=295fa4e82982254ce5890ca3f9ba3341
+API_KEY=$(cat ~/.financialmodelingprep.com.pin)
 
 while [[ true ]]
 do
