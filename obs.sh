@@ -2,6 +2,7 @@
 pidof obs
 if [ $? != 0 ] 
    then
+      export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib 
       nohup /usr/local/bin/obs --startvirtualcam --scene "Camera" &
       #nohup flatpak run com.obsproject.Studio --startvirtualcam --scene "Camera" &
       sleep 3
