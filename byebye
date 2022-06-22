@@ -1,4 +1,12 @@
 #!/bin/bash
 sudo dnf update -y
 flatpak update -y
+~/bin/commit.sh
+
+# Rebuild obs
+cd /home/kmendez/Projects/local/obs/obs-studio/build
+cmake ..
+make -j8
+sudo make install
+
 sudo shutdown now
