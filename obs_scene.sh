@@ -9,10 +9,7 @@ NEWS=6
 
 if [[ $1 == $WHITE_BOARD ]]
   then
-    #$0 $STAND_BY
-    #sleep 3
-    #$0 $CAMERA
-    #sleep 2
+    sleep 4
     xrandr --output HDMI-1 --brightness .4 --output HDMI-0 --brightness .4
   else
     xrandr --output HDMI-1 --brightness 1 --output HDMI-0 --brightness 1
