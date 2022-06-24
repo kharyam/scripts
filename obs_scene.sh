@@ -9,11 +9,11 @@ NEWS=6
 
 if [[ $1 == $WHITE_BOARD ]]
   then
-    sleep 4
-    xrandr --output HDMI-1 --brightness .4 --output HDMI-0 --brightness .4
+    sleep 3
+    xrandr --output HDMI-1 --brightness .3 --output HDMI-0 --brightness .3
 elif [[ $1 == $CAMERA ]]
   then
-    xrandr --output HDMI-1 --brightness .5 --output HDMI-0 --brightness .5
+    xrandr --output HDMI-1 --brightness .7 --output HDMI-0 --brightness .6
 else
     xrandr --output HDMI-1 --brightness 1 --output HDMI-0 --brightness 1
 fi

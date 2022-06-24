@@ -4,9 +4,9 @@ flatpak update -y
 ~/bin/commit.sh
 
 # Rebuild obs
-cd /home/kmendez/Projects/local/obs/obs-studio
+cd ${HOME}/Projects/local/obs/obs-studio
 git pull
-cd /home/kmendez/Projects/local/obs/obs-studio/build
+cd ${HOME}/Projects/local/obs/obs-studio/build
 cmake ..
 make -j8
 sudo make install
