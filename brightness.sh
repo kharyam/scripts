@@ -1,4 +1,7 @@
 #!/bin/bash
+
+xrandr --output HDMI-1 --brightness 1 --output HDMI-0 --brightness 1
+
 zenity --scale --text "Screen Brightness" --value=100 --print-partial | 
   while IFS= read -r b
   do
