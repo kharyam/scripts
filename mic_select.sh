@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Enable noise torch on virtual mic
-noisetorch -u
-noisetorch -i -s Virtual_Mic
+./noisecorrect.sh
 
 MIC=$(zenity --list --radiolist --hide-header --hide-column=3 --print-column=3 --text="Microphone Select" --column="Radio" --column="Friendly" --column="Actual" \
         "" "Noise Corrected Virtual Mic" "NoiseTorch Microphone for Virtual_Mic" \
