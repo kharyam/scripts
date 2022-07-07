@@ -5,4 +5,4 @@ SINK=$(zenity --list --radiolist --hide-header --hide-column=3 --print-column=3 
         "" "Monitor" "alsa_output.pci-0000_01_00.1.hdmi-stereo")
 
 pactl set-default-sink $SINK
-/home/kmendez/bin/volume.sh
+$HOME/bin/volume.sh

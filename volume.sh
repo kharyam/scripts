@@ -28,7 +28,7 @@ if [ "$MUTE" == "Mute: yes" ]; then
     ICON=audio-volume-muted
 fi 
 
-NOTI_ID=$(/home/kmendez/.local/bin/notify-send.py "Volume $VOLUME%" "($SINK)" --expire-time 2000 \
+NOTI_ID=$($HOME/.local/bin/notify-send.py "Volume $VOLUME%" "($SINK)" --expire-time 2000 \
                          --hint string:image-path:$ICON boolean:transient:true \
                                 int:has-percentage:$VOLUME \
                          --replaces-process "volume-popup")

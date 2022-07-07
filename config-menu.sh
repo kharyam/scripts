@@ -2,8 +2,8 @@
 declare -A APPMAP
 
 APPMAP[zsh]="vim ~/.zshrc"
-APPMAP[i3]="vim /home/kmendez/.config/i3/config"
-APPMAP[bumblebee]="vim /home/kmendez/.local/bin/lc off"
+APPMAP[i3]="vim $HOME/.config/i3/config"
+APPMAP[bumblebee]="vim $HOME/.local/bin/lc off"
 APPMAP[linux notification manager]="vim ~/.config/deadd/deadd.conf"
 APPMAP[linux notification manager css]="vim ~/.config/deadd/deadd.css"
 APPMAP[GDM Settings]="gdm-settings"
