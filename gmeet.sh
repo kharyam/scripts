@@ -1,2 +1,2 @@
 #!/bin/bash
-nohup vivaldi --new-window https://meet.google.com --profile-directory="Profile 1" &
+nohup google-chrome --new-window https://meet.google.com --profile-directory="Default"&
