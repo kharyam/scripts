@@ -2,6 +2,7 @@
 brightness=100
 
 BRIGHTNESS_FILE=/tmp/brightness-setting
+INCREMENT=2
 
 arg=${1:-'reset'}
 
@@ -10,9 +11,9 @@ if [ -f $BRIGHTNESS_FILE ] ; then
 fi
 
 if [ $arg == "-" ] ; then
-  new_brightness=$(($brightness - 1))
+  new_brightness=$(($brightness - $INCREMENT))
 elif [ $arg == "+" ] ; then
-  new_brightness=$(($brightness + 1))
+  new_brightness=$(($brightness + $INCREMENT))
 elif [ $arg == "reset" ] ; then
   new_brightness=100
 fi
