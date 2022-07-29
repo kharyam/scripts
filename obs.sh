@@ -4,8 +4,13 @@ if [ $? != 0 ]
    then
       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib 
       nohup /usr/local/bin/obs --startvirtualcam --scene "Camera" &
-      sleep 5 
+   while [ ! $(pidof obs) ] 
+   do
+     sleep 1; echo .
+   done
+   sleep 5
 fi
+
 
 xdotool search --name "^Display Webcam .*$"
 if [ $? != 0 ]
