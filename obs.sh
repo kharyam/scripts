@@ -4,11 +4,7 @@ if [ $? != 0 ]
    then
       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib 
       nohup /usr/local/bin/obs --startvirtualcam --scene "Camera" &
-   while [ ! $(pidof obs) ] 
-   do
-     sleep 1; echo .
-   done
-   sleep 5
+   sleep 15
 fi
 
 
