@@ -2,6 +2,8 @@
 pidof obs
 if [ $? != 0 ] 
    then
+      sudo rmmod v4l2loopback
+      sudo modprobe v4l2loopback card_label="OBS"
       export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib 
       nohup /usr/local/bin/obs --startvirtualcam --scene "Camera" &
    sleep 15
