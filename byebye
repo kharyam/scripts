@@ -6,9 +6,10 @@ flatpak update -y
 # Rebuild obs
 cd ${HOME}/Projects/local/obs/obs-studio
 git pull
+git submodule update
 cd ${HOME}/Projects/local/obs/obs-studio/build
-cmake ..
-make -j8
+cmake -DENABLE_BROWSER=ON -DENABLE_NEW_MPEGTS_OUTPUT=OFF -DCEF_ROOT_DIR="../../cef_binary_4638_linux64" -DENABLE_AJA=OFF .. 
+make -j$(nproc)
 sudo make install
 
 sudo shutdown now
