@@ -3,6 +3,11 @@
 # Recycle failed: unexpected error creating recycler pod:
 #      pods "recycler-for-pv0006" is forbidden: violates PodSecurity
 #      "baseline:latest": hostPath volumes (volume "vol")
+#
+# https://github.com/code-ready/crc/issues/3336
+
+# Workaround:
+# oc label  --overwrite ns openshift-infra  pod-security.kubernetes.io/enforce=privileged
 
 # Remove claim references from failed PVs
 oc get pv | grep Failed | awk '{print $1}' | xargs -l oc patch -p '{"spec":{"claimRef": null}}' pv
