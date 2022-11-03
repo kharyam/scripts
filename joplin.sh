@@ -7,4 +7,4 @@ if [ $? != 0 ]
   $HOME/.local/bin/notify-send.py "Joplin" "Joplin is starting..." --expire-time 5000 
 fi
 
-xdotool key "Super_L+minus"
+xdotool key "Super_L+F11"
