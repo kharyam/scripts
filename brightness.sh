@@ -22,6 +22,8 @@ if [ $new_brightness -lt 1 ] ; then
   new_brightness=1
 elif [ $new_brightness -gt 100 ] ; then
   new_brightness=100
+  nvidia-settings -l
+  exit 0
 fi
 
 echo -n $new_brightness > $BRIGHTNESS_FILE
