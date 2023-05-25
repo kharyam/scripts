@@ -1,3 +1,5 @@
 #!/bin/bash
 sudo modprobe i2c-i801
-~/Projects/local/openrgb --profile ~/.config/OpenRGB/Default.orp
+sudo modprobe i2c-dev
+sudo udevadm control --reload-rules && sudo udevadm trigger
+~/Projects/local/OpenRGB/openrgb --profile ~/.config/OpenRGB/Default.orp
