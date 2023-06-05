@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo cryptsetup luksOpen /dev/nvme1n1p3 old_Vol
+sudo cryptsetup luksOpen /dev/nvme2n1p2 old_vol
 sudo mount /dev/mapper/old_vol /mnt/old_vol
