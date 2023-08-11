@@ -6,13 +6,13 @@ if [ $? != 0 ]
       sudo modprobe v4l2loopback card_label="OBS"
       #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/lib64 
       nohup /usr/local/bin/obs --startvirtualcam --scene "Camera" &
-   sleep 15
 fi
 
 
 xdotool search --name "^Display Webcam .*$"
 if [ $? != 0 ]
    then
+      sleep 15
       nohup python3 -m http.server -d $HOME/Projects/local/webcam-browser 8087 &
       brave-browser --new-window --enable-features=OverlayScrollbar --profile-directory="Profile 2" --app=http://localhost:8087
       #google-chrome --new-window --enable-features=OverlayScrollbar --profile-directory="Default" --app=http://localhost:8087
