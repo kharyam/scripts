@@ -30,7 +30,8 @@ echo -n $new_brightness > $BRIGHTNESS_FILE
 
 bright=$(bc -l <<< "$new_brightness * .01")
 
-xrandr --output HDMI-1 --brightness $bright --output DP-4 --brightness $bright
+#xrandr --output HDMI-1 --brightness $bright --output DP-4 --brightness $bright
+xrandr --output DP-4 --brightness $bright
 
 ICON=display-brightness
 

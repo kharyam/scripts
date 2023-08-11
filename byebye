@@ -12,4 +12,6 @@ cmake -DENABLE_BROWSER=ON -DENABLE_NEW_MPEGTS_OUTPUT=OFF -DCEF_ROOT_DIR="../../c
 make -j$(nproc)
 sudo make install
 
+oc adm drain node4.ocp.khary.net --ignore-daemonsets --kubeconfig=~/kubeconfig-noingress
+
 sudo shutdown now
