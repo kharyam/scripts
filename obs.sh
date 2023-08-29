@@ -5,6 +5,8 @@ if [ $? != 0 ]
       sudo rmmod v4l2loopback
       sudo modprobe v4l2loopback card_label="OBS"
       #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/lib64 
+      echo Preparing to start OBS...
+      sleep 3
       nohup /usr/local/bin/obs --startvirtualcam --scene "Camera" &
 fi
 
