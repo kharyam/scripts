@@ -14,7 +14,7 @@ fi
 xdotool search --name "^Display Webcam .*$"
 if [ $? != 0 ]
    then
-      sleep 15
+      sleep 10 
       nohup python3 -m http.server -d $HOME/Projects/local/webcam-browser 8087 &
       brave-browser --new-window --enable-features=OverlayScrollbar --profile-directory="Profile 2" --app=http://localhost:8087
       #google-chrome --new-window --enable-features=OverlayScrollbar --profile-directory="Default" --app=http://localhost:8087
