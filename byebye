@@ -8,7 +8,7 @@ cd ${HOME}/Projects/local/obs/obs-studio
 git pull
 git submodule update
 cd ${HOME}/Projects/local/obs/obs-studio/build
-cmake -DENABLE_BROWSER=ON -DENABLE_NEW_MPEGTS_OUTPUT=OFF -DCEF_ROOT_DIR="../../cef_binary_4638_linux64" -DENABLE_AJA=OFF .. 
+cmake -DENABLE_BROWSER=ON -DENABLE_NEW_MPEGTS_OUTPUT=OFF -DCEF_ROOT_DIR="../../cef_binary_5060_linux64" -DENABLE_AJA=OFF .. 
 make -j$(nproc)
 sudo make install
 
