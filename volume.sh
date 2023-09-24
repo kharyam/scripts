@@ -31,7 +31,7 @@ fi
 NOTI_ID=$($HOME/.local/bin/notify-send.py "Volume $VOLUME%" "($SINK)" --expire-time 500 \
                          --hint string:image-path:$ICON boolean:transient:true \
                                 int:has-percentage:$VOLUME ) 
-#                         --replaces-process "volume-popup")
+                         #--replaces-process "volume-popup")
 
 
 #NOTI_ID=$($HOME/.local/bin/notify-send.py "Volume $VOLUME%" "($SINK)" --expire-time 250 \
