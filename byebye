@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo dnf update -y
 flatpak update -y
+sudo snap refresh
 ~/bin/commit.sh
 
 # Rebuild obs
