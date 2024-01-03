@@ -7,15 +7,17 @@ BACK_IN=4
 WHITE_BOARD=5
 NEWS=6
 
+DISP=$(xrandr | grep -w connected | awk '{print $1}')
+
 if [[ $1 == $WHITE_BOARD ]]
   then
     sleep 3
-    xrandr --output HDMI-1 --brightness .3 --output DP-0 --brightness .3
+    xrandr --output $DISP --brightness .3
 elif [[ $1 == $CAMERA ]]
   then
-    xrandr --output HDMI-1 --brightness .7 --output DP-0 --brightness .6
+    xrandr --output $DISP --brightness .6
 else
-    xrandr --output HDMI-1 --brightness 1 --output DP-0 --brightness 1
+    xrandr --output $DISP --brightness 1
 fi
 
 for i in {0..10}
@@ -24,7 +26,7 @@ do
   if [ $? -eq 0 ]
     then
       echo "Found OBS at desktop $i"
-      exit 0
+      break
   fi
 done
 
