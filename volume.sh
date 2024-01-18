@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 
 if [ "$1" == "inc" ]; then
    amixer -q sset Master 5%+
@@ -12,8 +13,14 @@ if [ "$1" == "mute" ]; then
    amixer -q sset Master toggle
 fi
 
-
 VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' | head -1)
+
+if [ "$VOLUME" -ge 100 ]; then
+  echo "HERE"
+  VOLUME=100
+  amixer -q sset Master 100%
+fi
+
 MUTE=$(pactl get-sink-mute @DEFAULT_SINK@)
 SINK=$(pactl info | grep "Default Sink" | cut -d ' ' -f 3)
 if [ "$VOLUME" -le 20 ]; then
@@ -27,6 +34,7 @@ fi
 if [ "$MUTE" == "Mute: yes" ]; then
     ICON=audio-volume-muted
 fi 
+
 
 NOTI_ID=$($HOME/.local/bin/notify-send.py "Volume $VOLUME%" "($SINK)" --expire-time 500 \
                          --hint string:image-path:$ICON boolean:transient:true \
