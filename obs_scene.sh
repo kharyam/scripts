@@ -32,7 +32,7 @@ done
 
 if [[ $1 == @($CAMERA|$SCREEN_SHARE|$NEWS) ]]
   then
-    ${HOME}/.local/bin/lc on
+    ${HOME}/bin/lcli on
   else
-    ${HOME}/.local/bin/lc off
+    ${HOME}/bin/lcli off
 fi
