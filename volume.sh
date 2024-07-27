@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 
+STEP=2
+
 win_id=$(xdotool search --name "Volume")
 if [ $? != 0 ]; then
   ~/bin/xvolume.sh &
@@ -11,11 +13,11 @@ fi
 xdotool windowmap $win_id
 
 if [ "$1" == "inc" ]; then
-   amixer -q sset Master 5%+
+   amixer -q sset Master ${STEP}%+
 fi
 
 if [ "$1" == "dec" ]; then
-   amixer -q sset Master 5%-
+   amixer -q sset Master ${STEP}%-
 fi
 
 if [ "$1" == "mute" ]; then
