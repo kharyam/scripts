@@ -19,4 +19,4 @@ sudo cp UI/obs /usr/local/bin
 
 oc adm drain node4.ocp.khary.net --ignore-daemonsets --kubeconfig=~/kubeconfig-noingress
 
-udo shutdown now
+sudo shutdown now
