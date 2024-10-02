@@ -1,4 +1,6 @@
 #!/bin/bash
+oc adm drain node5.ocp.khary.net --ignore-daemonsets --delete-emptydir-data --kubeconfig=~/kubeconfig-noingress
+
 sudo dnf update -y
 flatpak update -y
 sudo snap refresh
@@ -17,6 +19,5 @@ sudo make install
 sudo ldconfig
 sudo cp UI/obs /usr/local/bin
 
-oc adm drain node4.ocp.khary.net --ignore-daemonsets --kubeconfig=~/kubeconfig-noingress
 
 sudo shutdown now
