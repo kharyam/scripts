@@ -1,5 +1,5 @@
 #!/bin/bash
-oc adm drain node5.ocp.khary.net --ignore-daemonsets --delete-emptydir-data --kubeconfig=~/kubeconfig-noingress --grace-period=0 --force
+oc adm drain node5.ocp.khary.net --ignore-daemonsets --delete-emptydir-data --kubeconfig=${HOME}/kubeconfig-noingress --grace-period=0 --force
 
 sudo dnf update -y
 flatpak update -y
