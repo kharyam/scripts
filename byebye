@@ -1,5 +1,6 @@
 #!/bin/bash
 oc adm drain node5.ocp.khary.net --ignore-daemonsets --delete-emptydir-data --kubeconfig=${HOME}/kubeconfig-noingress --grace-period=0 --force
+oc adm uncordon node5.ocp.khary.net --kubeconfig=${HOME}/kubeconfig-noingress
 sudo virsh shutdown ocp-node-5
 
 sudo dnf update -y
