@@ -1,7 +1,9 @@
 #!/bin/bash
 oc adm drain node5.ocp.khary.net --ignore-daemonsets --delete-emptydir-data --kubeconfig=${HOME}/kubeconfig-noingress --grace-period=0 --force
 oc adm uncordon node5.ocp.khary.net --kubeconfig=${HOME}/kubeconfig-noingress
+
 sudo virsh shutdown ocp-node-5
+
 
 sudo dnf update -y
 flatpak update -y
@@ -10,16 +12,12 @@ sudo snap refresh
 
 # Rebuild obs
 # https://github.com/obsproject/obs-studio/wiki/build-instructions-for-linux
-cd ${HOME}/Projects/local/obs/obs-studio
-git pull
-git submodule update
-cd ${HOME}/Projects/local/obs/obs-studio/build
-cmake -DENABLE_BROWSER=ON -DCEF_ROOT_DIR="../../cef_binary_5060_linux64" -DENABLE_AJA=OFF -DENABLE_NEW_MPEGTS_OUTPUT=OFF -DENABLE_WEBRTC=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=ON ..
-make -j16
-sudo make install
-#echo "/usr/local/lib" | sudo tee /etc/ld.so.conf.d/local.conf -a
-sudo ldconfig
-sudo cp UI/obs /usr/local/bin
+${HOME}/bin/build_obs.sh
 
+while [ "$(sudo virsh domstate ocp-node-5)" != "shut off" ]; do
+    echo "Waiting for VM to shut down..."
+    sleep 1  # Sleep for 1 second before checking again
+done
+echo "VM is now shut off."
 
 sudo shutdown now
