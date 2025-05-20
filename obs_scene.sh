@@ -27,7 +27,7 @@ for i in {0..10}; do
 done
 
 if [[ $1 == @($CAMERA|$SCREEN_SHARE|$NEWS) ]]; then
-  ${HOME}/bin/lcli on
+  lcli on
 else
-  ${HOME}/bin/lcli off
+  lcli off
 fi
